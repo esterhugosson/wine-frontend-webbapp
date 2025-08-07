@@ -1,5 +1,6 @@
 
 import { Link, NavLink } from 'react-router-dom'
+import wineLogo from '/wine-svgrepo-com.svg'
 import './Navbar.css'
 
 export const Navbar = () => {
@@ -9,7 +10,9 @@ export const Navbar = () => {
             <nav>
 
 
-                <Link to='/home' className='title'>The Wine Experts</Link>
+                <Link to='/home' className='logo'>
+                    <img src={wineLogo} alt="Wine Logo" />
+                </Link>
 
         
 
