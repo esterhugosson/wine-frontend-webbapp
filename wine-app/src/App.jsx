@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 //Components
 import { Navbar } from './components/Navbar/Navbar'
-import {Home} from './components/Home/Home'
+import { Home } from './components/Home/Home'
 import { Average } from './components/Average/Average'
 
 function App() {

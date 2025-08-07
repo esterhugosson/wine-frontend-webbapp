@@ -12,7 +12,6 @@ import {
 import { toast } from 'react-toastify'
 import { wineService } from '../../service/wineService'
 import './Average.css'
-import React from 'react'
 import Select from 'react-select'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)

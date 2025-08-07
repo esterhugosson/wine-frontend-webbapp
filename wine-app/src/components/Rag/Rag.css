@@ -1,0 +1,46 @@
+.chat-cont {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-rag {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-rag input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-rag button {
+  padding: 0.5rem 1.2rem;
+  background: #b91c1c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-rag button:hover {
+  background: #991b1b;
+}
+
+.answer-div {
+  background: #fef2f2;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.sources-dic {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
