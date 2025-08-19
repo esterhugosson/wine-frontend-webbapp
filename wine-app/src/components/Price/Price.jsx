@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import {
     Chart as ChartJS,
     LinearScale,
@@ -83,6 +83,9 @@ export const Price = () => {
             })
             try {
                 const data = await wineService.getPriceVsPoint(query)
+                if (data.length === 0) {
+                    toast.info("No wines matched your filter criteria.")
+                }
                 setWines(data)
             } catch {
                 toast.error("Could not fetch the filtered wines. Please try again later!")
@@ -91,9 +94,6 @@ export const Price = () => {
 
         fetchFilteredWines()
     }, [selectedCountry, selectedVariety, minPoints, maxPrice])
-
-
-
 
     const buildQuery = ({ country, variety, maxPrice, minPoints }) => {
         const params = new URLSearchParams()
@@ -104,11 +104,15 @@ export const Price = () => {
         return params.toString()
     }
 
-    const counts = {}
-    wines.forEach(w => {
-        const key = `${w.price}-${w.points}`
-        counts[key] = (counts[key] || 0) + 1
-    })
+    const counts = useMemo(() => {
+        const map = {}
+        wines.forEach(w => {
+            const key = `${w.price}-${w.points}`
+            map[key] = (map[key] || 0) + 1
+        })
+        return map
+    }, [wines])
+
 
 
 
@@ -212,13 +216,13 @@ export const Price = () => {
                 <input
                     type='number'
                     onChange={(e) => setMaxPrice(parseFloat(e.target.value))}
-                    placeholder="Select maximum price..."
+                    placeholder="Select max price..."
                 />
 
                 <input
                     type='number'
                     onChange={(e) => setMinPoints(parseFloat(e.target.value))}
-                    placeholder="Select minimum points..."
+                    placeholder="Select min points..."
                 />
 
 
