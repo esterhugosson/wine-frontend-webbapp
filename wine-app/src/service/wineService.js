@@ -21,6 +21,15 @@ export const wineService = {
             throw error
         }
     },
+    getTopWines: async (query) => {
+        try {
+            const response = await axios.get(`${url}/wines/top-wines?${query}`)
+            return response.data
+        } catch (error) {
+            console.error('Error fetching average count:', error)
+            throw error
+        }
+    },
     getCountries: async () => {
         try {
             const response = await axios.get(`${url}/wines/countries`)

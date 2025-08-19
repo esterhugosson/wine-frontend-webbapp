@@ -26,11 +26,11 @@ export const Navbar = () => {
                     </li>
 
                     <li>
-                        <NavLink to='/topwines' > Top varieties </NavLink>
+                        <NavLink to='/topwines' > Top Wines </NavLink>
                     </li>
 
                     <li>
-                        <NavLink to='/count' > Wine count </NavLink>
+                        <NavLink to='/count' > Wine Count </NavLink>
                     </li>
 
                 </ul>
