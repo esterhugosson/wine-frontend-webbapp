@@ -11,6 +11,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Navbar } from './components/Navbar/Navbar'
 import { Home } from './components/Home/Home'
 import { Average } from './components/Average/Average'
+import { Price } from './components/Price/Price'
+import { Topwines } from './components/Topwines/Topwines'
+import { Count } from './components/Count/Count'
 
 function App() {
 
@@ -25,6 +28,9 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/' element={<Home />} />
         <Route path='/average' element={<Average />} />
+        <Route path='/price' element={<Price />} />
+        <Route path='/topwines' element={<Topwines />} />
+        <Route path='/count' element={<Count />} />
 
 
 
