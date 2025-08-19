@@ -21,6 +21,24 @@ export const wineService = {
             throw error
         }
     },
+    getCountries: async () => {
+        try {
+            const response = await axios.get(`${url}/wines/countries`)
+            return response.data
+        } catch (error) {
+            console.error('Error fetching average count:', error)
+            throw error
+        }
+    },
+    getVarieties: async () => {
+        try {
+            const response = await axios.get(`${url}/wines/varieties`)
+            return response.data
+        } catch (error) {
+            console.error('Error fetching average count:', error)
+            throw error
+        }
+    },
     askQuestion: async (question) => {
         try {
             const response = await axios.post(`${url}/rag/query`, { question: question })
