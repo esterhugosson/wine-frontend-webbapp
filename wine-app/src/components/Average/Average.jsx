@@ -86,6 +86,7 @@ export const Average = () => {
 
   return (
     <>
+    <h1 className='title'>Average score per country</h1>
       <div className="chart-container">
         <Bar data={chartData} options={options} />
       </div>
