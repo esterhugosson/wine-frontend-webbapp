@@ -14,6 +14,7 @@ import { Average } from './components/Average/Average'
 import { Price } from './components/Price/Price'
 import { Topwines } from './components/Topwines/Topwines'
 import { Count } from './components/Count/Count'
+import { Footer } from './components/Footer/Footer'
 
 function App() {
 
@@ -51,6 +52,8 @@ function App() {
         theme="light"
         transition={Bounce}
       />
+
+      <Footer/>
 
 
     </>
