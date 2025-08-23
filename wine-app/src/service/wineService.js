@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-const url = import.meta.env.VITE_API_URL 
+// Dev URL
+//const url = import.meta.env.VITE_API_URL 
+
+//Prod URL
+const url = import.meta.env.VITE_PROD_API_URL
 
 export const wineService = {
     getAverageCount: async () => {
