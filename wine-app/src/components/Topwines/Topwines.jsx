@@ -15,7 +15,7 @@ export const Topwines = () => {
     const [wines, setWines] = useState([])
     const [varieties, setVarieties] = useState([])
     const [selectedVariety, setSelectedVariety] = useState("all")
-
+    const [loading, setLoading] = useState(false)
     const [limit, setLimit] = useState()
 
 
@@ -45,25 +45,24 @@ export const Topwines = () => {
 
 
     //When filter changes changes
-    useEffect(() => {
-        const fetchFilteredWines = async () => {
-            const query = buildQuery({
-                variety: selectedVariety !== "all" ? selectedVariety : undefined,
-                limit: limit
-            })
-            try {
-                const data = await wineService.getTopWines(query)
-                if (data.length === 0) {
-                    toast.info("No wines matched your filter criteria.")
-                }
-                setWines(data)
-            } catch {
-                toast.error("Could not fetch the filtered wines. Please try again later!")
+    const handleSearch = async () => {
+        const query = buildQuery({
+            variety: selectedVariety !== "all" ? selectedVariety : undefined,
+            limit
+        })
+        try {
+            setLoading(true)
+            const data = await wineService.getTopWines(query)
+            if (data.length === 0) {
+                toast.info("No wines matched your filter criteria.")
             }
+            setWines(data)
+        } catch {
+            toast.error("Could not fetch the filtered wines. Please try again later!")
+        } finally {
+            setLoading(false)
         }
-
-        fetchFilteredWines()
-    }, [selectedVariety, limit])
+    }
 
     const buildQuery = ({ variety, limit }) => {
         const params = new URLSearchParams()
@@ -129,6 +128,9 @@ export const Topwines = () => {
                     }}
                     placeholder="Limit (max 100)..."
                 />
+
+                <button onClick={handleSearch}>Search</button>
+                {loading && <p>Loading...</p>}
 
             </div>
 

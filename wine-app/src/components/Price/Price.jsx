@@ -31,6 +31,9 @@ export const Price = () => {
     const [maxPrice, setMaxPrice] = useState()
     const [minPoints, setMinPoints] = useState()
 
+    const [loading, setLoading] = useState(false)
+
+
 
 
 
@@ -72,29 +75,27 @@ export const Price = () => {
 
     }, [])
 
-    //When filter changes changes
-    useEffect(() => {
-        const fetchFilteredWines = async () => {
-            const query = buildQuery({
-                country: selectedCountry !== "all" ? selectedCountry : undefined,
-                variety: selectedVariety !== "all" ? selectedVariety : undefined,
-                maxPrice: maxPrice,
-                minPoints: minPoints
-            })
-            try {
-                const data = await wineService.getPriceVsPoint(query)
-                if (data.length === 0) {
-                    toast.info("No wines matched your filter criteria.")
-                }
-                setWines(data)
-            } catch {
-                toast.error("Could not fetch the filtered wines. Please try again later!")
+    //When filter changes, handle search
+    const handleSearch = async () => {
+        const query = buildQuery({
+            country: selectedCountry !== "all" ? selectedCountry : undefined,
+            variety: selectedVariety !== "all" ? selectedVariety : undefined,
+            maxPrice,
+            minPoints
+        })
+        try {
+            setLoading(true)
+            const data = await wineService.getPriceVsPoint(query)
+            if (data.length === 0) {
+                toast.info("No wines matched your filter criteria.")
             }
+            setWines(data)
+        } catch {
+            toast.error("Could not fetch the filtered wines. Please try again later!")
+        } finally {
+            setLoading(false)
         }
-
-        fetchFilteredWines()
-    }, [selectedCountry, selectedVariety, minPoints, maxPrice])
-
+    }
     const buildQuery = ({ country, variety, maxPrice, minPoints }) => {
         const params = new URLSearchParams()
         if (country?.length) params.append("country", country)
@@ -224,6 +225,10 @@ export const Price = () => {
                     onChange={(e) => setMinPoints(parseFloat(e.target.value))}
                     placeholder="Select min points..."
                 />
+
+                <button onClick={handleSearch}>Search</button>
+                {loading && <p>Loading...</p>}
+
 
 
 
