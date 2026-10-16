@@ -1,0 +1,100 @@
+
+.count-page {
+    width: min(1100px, calc(100% - 48px));
+    margin: 4rem auto 5rem;
+    color: #292522;
+    min-height: 65vh;
+}
+
+.count-page .page-header {
+    margin-bottom: 2.5rem;
+}
+
+.count-page .page-eyebrow {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #722f37;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.count-page .page-header h1 {
+    margin: 0 0 1rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+}
+
+.count-page .page-header p {
+    max-width: 620px;
+    margin: 0;
+    color: #746b64;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.count-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.58);
+    border: 1px solid rgba(114, 47, 55, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(48, 35, 29, 0.05);
+    backdrop-filter: blur(12px);
+}
+
+.count-placeholder-icon {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    background: #f1e4df;
+    color: #722f37;
+    font-size: 1.8rem;
+}
+
+.count-status {
+    margin-bottom: 0.8rem;
+    color: #722f37;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.count-placeholder h2 {
+    margin: 0 0 0.8rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+}
+
+.count-placeholder p {
+    max-width: 480px;
+    margin: 0;
+    color: #746b64;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+    .count-page {
+        width: calc(100% - 32px);
+        margin: 2.5rem auto 3rem;
+    }
+
+    .count-placeholder {
+        min-height: 300px;
+        padding: 2rem 1.25rem;
+    }
+}

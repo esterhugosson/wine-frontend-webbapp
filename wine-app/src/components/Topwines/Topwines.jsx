@@ -73,72 +73,191 @@ export const Topwines = () => {
 
 
     const chartData = {
-        labels: wines.map(item => item.title),
-        datasets: [
-            {
-                label: 'Points',
-                data: wines.map(item => item.points),
-                backgroundColor: 'rgba(191, 145, 19, 0.5)'
-            }
-        ]
-    }
+    labels: wines.map(item => item.title),
+    datasets: [
+        {
+            label: 'Points',
+            data: wines.map(item => item.points),
+            backgroundColor: 'rgba(114, 47, 55, 0.7)',
+            borderColor: '#722f37',
+            borderWidth: 1,
+            borderRadius: 5,
+            barPercentage: 0.75,
+            categoryPercentage: 0.8
+        }
+    ]
+}
 
     const options = {
-        indexAxis: 'y',
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'bottom'
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+
+    plugins: {
+        legend: {
+            display: false
+        },
+
+        title: {
+            display: true,
+            text: 'Highest-Rated Wines',
+            color: '#451c22',
+            font: {
+                family: 'Georgia, serif',
+                size: 18,
+                weight: '600'
             },
+            padding: {
+                bottom: 24
+            }
+        },
+
+        tooltip: {
+            backgroundColor: '#451c22',
+            titleColor: '#fffaf6',
+            bodyColor: '#f7f4ef',
+            padding: 12,
+            cornerRadius: 8
+        }
+    },
+
+    scales: {
+        x: {
+            min: 0,
+            max: 100,
             title: {
                 display: true,
-                text: 'Top Wines'
+                text: 'Wine score',
+                color: '#77706b'
+            },
+            ticks: {
+                color: '#77706b'
+            },
+            grid: {
+                color: 'rgba(69, 28, 34, 0.07)'
+            },
+            border: {
+                display: false
+            }
+        },
+
+        y: {
+            ticks: {
+                color: '#5d5651',
+                font: {
+                    family: 'Inter, sans-serif',
+                    size: 11
+                }
+            },
+            grid: {
+                display: false
+            },
+            border: {
+                display: false
             }
         }
     }
+}
 
 
 
-    return (
-        <div>
-            <h1 className='title'>Top Wines</h1>
+    
+return (
+    <main className="topwines-page">
 
-            <p className='welcome-text-one'>The highest ranked wines in our database! 100 is the highest rank. </p>
+        <header className="page-header">
+            <p className="eyebrow">WINE DATA</p>
 
-            <div className="chart-wine-container">
-                <Bar data={chartData} options={options} />
+            <h1>Top Wines</h1>
+
+            <p>
+                Discover the highest-rated wines in the dataset.
+                Explore standout bottles and compare their scores.
+            </p>
+        </header>
+
+        <section className="chart-card topwines-chart-card">
+            <Bar data={chartData} options={options} />
+        </section>
+
+        <section className="topwines-filters filter-card">
+            <div className="filter-section-heading">
+                <div>
+                    <span className="filter-label">Refine your ranking</span>
+                    <p>
+                        Choose a grape variety and the number of wines to display.
+                    </p>
+                </div>
             </div>
 
-            <div className='controls'>
+            <div className="topwines-filter-grid">
 
-                <Select
-                    options={[{ value: "all", label: "All Varieties" }, ...varieties.map(c => ({ value: c, label: c }))]}
-                    value={{ value: selectedVariety, label: selectedVariety === "all" ? "All Varieties" : selectedVariety }}
-                    onChange={(option) => setSelectedVariety(option.value)}
-                    className="country-price-select"
-                    placeholder="Select variety..."
-                />
+                <div className="topwines-filter-field">
+                    <label htmlFor="topwine-variety">Grape variety</label>
 
-                <input
-                    type='number'
-                    max={100}
-                    onChange={(e) => {
-                        const val = Math.min(parseFloat(e.target.value), 100)
-                        setLimit(val)
-                    }}
-                    placeholder="Limit (max 100)..."
-                />
+                    <Select
+                        inputId="topwine-variety"
+                        className="topwine-variety-select"
+                        classNamePrefix="wine-select"
+                        options={[
+                            { value: "all", label: "All Varieties" },
+                            ...varieties.map(c => ({ value: c, label: c }))
+                        ]}
+                        value={{
+                            value: selectedVariety,
+                            label: selectedVariety === "all"
+                                ? "All Varieties"
+                                : selectedVariety
+                        }}
+                        onChange={option =>
+                            setSelectedVariety(option?.value ?? "all")
+                        }
+                        placeholder="Select variety..."
+                    />
+                </div>
 
-                <button onClick={handleSearch}>Search</button>
-                {loading && <p>Loading...</p>}
+                <div className="topwines-filter-field">
+                    <label htmlFor="topwine-limit">Number of wines</label>
+                    <input
+                        id="topwine-limit"
+                        type="number"
+                        min="1"
+                        max="100"
+                        value={limit ?? ""}
+                        onChange={e => {
+                            const value = e.target.value
+                            setLimit(
+                                value === ""
+                                    ? undefined
+                                    : Math.min(100, Math.max(1, Number(value)))
+                            )
+                        }}
+                        placeholder="Up to 100"
+                    />
+                </div>
 
             </div>
 
+            <div className="topwines-filter-actions">
+                <span className="filter-hint">
+                    {loading
+                        ? "Updating ranking..."
+                        : "Apply your choices to update the chart."}
+                </span>
 
-        </div>
+                <button
+                    className="primary-action"
+                    onClick={handleSearch}
+                    disabled={loading}
+                >
+                    {loading ? "Searching..." : "Apply filters"}
+                </button>
+            </div>
+        </section>
 
+    </main>
+)
 
-    )
 }
 
 export default Topwines

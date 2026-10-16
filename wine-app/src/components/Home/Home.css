@@ -1,0 +1,364 @@
+
+/* =====================================
+   Home page
+===================================== */
+
+.home-page {
+    width: min(1100px, calc(100% - 48px));
+    margin: 0 auto;
+    color: #292522;
+}
+
+
+/* =====================================
+   Hero
+===================================== */
+
+.home-hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 390px;
+    padding: 5rem 3rem 4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    box-sizing: border-box;
+    isolation: isolate;
+}
+
+.home-eyebrow,
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #722f37;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.home-hero h1 {
+    margin: 1rem 0 0;
+
+    color: #451c22;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.8rem, 6vw, 4.7rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+}
+
+.home-hero h1 span,
+.ai-intro h2 span {
+    color: #8b4b50;
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 520px;
+    margin: 1.25rem 0 1.75rem;
+
+    color: #77706b;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 13px 19px;
+
+    border: 1px solid #722f37;
+    border-radius: 999px;
+
+    background: #722f37;
+    color: #fffaf6;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hero-button:hover {
+    background: #451c22;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(69, 28, 34, 0.14);
+}
+
+.hero-decoration {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+
+    width: 300px;
+    height: 300px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(114, 47, 55, 0.12);
+    border-radius: 50%;
+
+    color: rgba(114, 47, 55, 0.07);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 17rem;
+    line-height: 1;
+    font-style: italic;
+
+    pointer-events: none;
+}
+
+
+/* =====================================
+   Explore section
+===================================== */
+
+.explore-section {
+    padding: 2rem 0 5rem;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.section-heading h2,
+.ai-intro h2 {
+    margin: 0.6rem 0 0;
+
+    color: #451c22;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+}
+
+.section-heading > p {
+    max-width: 300px;
+    margin: 0 0 4px;
+
+    color: #77706b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.explore-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-height: 205px;
+    padding: 1.4rem;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(114, 47, 55, 0.1);
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.55);
+
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.explore-card:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(114, 47, 55, 0.25);
+
+    box-shadow: 0 12px 28px rgba(69, 28, 34, 0.06);
+}
+
+.explore-number {
+    color: #a18a83;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.9rem;
+}
+
+.explore-card h3 {
+    margin: 1.5rem 0 0.5rem;
+
+    color: #451c22;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.explore-card p {
+    margin: 0;
+    padding-right: 4px;
+
+    color: #77706b;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.explore-arrow {
+    position: absolute;
+    top: 1.3rem;
+    right: 1.3rem;
+
+    color: #722f37;
+
+    transition: transform 0.25s ease;
+}
+
+.explore-card:hover .explore-arrow {
+    transform: translate(3px, -3px);
+}
+
+
+/* =====================================
+   AI section
+===================================== */
+
+.ai-section {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 3rem;
+
+    margin-bottom: 4rem;
+    padding: 3rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    box-shadow: 0 10px 35px rgba(69, 28, 34, 0.04);
+}
+
+.ai-intro h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.2;
+}
+
+.ai-intro > p {
+    max-width: 360px;
+    margin: 1rem 0 0;
+
+    color: #77706b;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.ai-chat-card {
+    min-width: 0;
+    padding: 1.5rem;
+
+    border: 1px solid rgba(114, 47, 55, 0.1);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 25px rgba(69, 28, 34, 0.05);
+}
+
+.chat-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(114, 47, 55, 0.1);
+
+    color: #451c22;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.chat-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #66866a;
+}
+
+.chat-ai-label {
+    margin-left: auto;
+    padding: 4px 8px;
+
+    border-radius: 6px;
+    background: rgba(114, 47, 55, 0.08);
+
+    color: #722f37;
+    font-size: 0.7rem;
+}
+
+.chat-prompt {
+    margin: 1.2rem 0;
+
+    color: #77706b;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.1rem;
+}
+
+
+/* =====================================
+   Footer
+===================================== */
+
+.home-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 1.5rem 0 2rem;
+
+    border-top: 1px solid rgba(114, 47, 55, 0.12);
+
+    color: #8a817b;
+    font-size: 0.8rem;
+}
+
+.home-footer span:first-child {
+    color: #722f37;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1rem;
+}
+
+
+/* =====================================
+   Reduced motion
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-button,
+    .explore-card,
+    .explore-arrow {
+        transition: none;
+    }
+}

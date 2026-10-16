@@ -1,0 +1,224 @@
+
+/* =====================================
+   Price vs Points
+===================================== */
+
+.price-page {
+    width: min(1100px, calc(100% - 48px));
+    margin: 4rem auto 5rem;
+    color: #292522;
+}
+
+/* Header */
+
+.price-page .page-header {
+    margin-bottom: 2rem;
+}
+
+.price-page .page-header .eyebrow {
+    margin: 0 0 0.5rem;
+    color: #722f37;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.price-page .page-header h1 {
+    margin: 0;
+    color: #451c22;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+.price-page .page-header > p:last-child {
+    max-width: 620px;
+    margin: 0.75rem 0 0;
+    color: #77706b;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Chart card */
+
+.price-chart-card {
+    height: 560px;
+    min-height: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.price-chart-card canvas {
+    max-width: 100%;
+}
+
+/* Filters */
+
+.price-filters {
+    margin-top: 1rem;
+    padding: 1.75rem;
+}
+
+.price-page .filter-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(69, 28, 34, 0.05);
+}
+
+.filter-section-heading {
+    margin-bottom: 1.5rem;
+}
+
+.price-page .filter-label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #451c22;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.filter-section-heading p {
+    margin: 0;
+    color: #77706b;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.price-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.price-filter-field {
+    min-width: 0;
+}
+
+.price-filter-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #5d5651;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.price-filter-field input {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(114, 47, 55, 0.15);
+    border-radius: 10px;
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.8);
+    color: #451c22;
+    font: inherit;
+    font-size: 0.9rem;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.price-filter-field input:focus {
+    border-color: #722f37;
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.08);
+}
+
+.price-filter-field input::placeholder {
+    color: #a39a94;
+}
+
+/* react-select */
+
+.price-page .wine-select__control {
+    min-height: 42px;
+    border: 1px solid rgba(114, 47, 55, 0.15);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.price-page .wine-select__control:hover {
+    border-color: rgba(114, 47, 55, 0.4);
+}
+
+.price-page .wine-select__control--is-focused {
+    border-color: #722f37;
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.08);
+}
+
+.price-page .wine-select__single-value {
+    color: #451c22;
+    font-size: 0.9rem;
+}
+
+.price-page .wine-select__placeholder {
+    color: #a39a94;
+    font-size: 0.9rem;
+}
+
+.price-page .wine-select__menu {
+    z-index: 20;
+    overflow: hidden;
+    border: 1px solid rgba(114, 47, 55, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(69, 28, 34, 0.12);
+}
+
+.price-page .wine-select__option {
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.price-page .wine-select__option--is-focused {
+    background: #f4e9e7;
+    color: #451c22;
+}
+
+.price-page .wine-select__option--is-selected {
+    background: #722f37;
+    color: #fffaf6;
+}
+
+/* Filter actions */
+
+.price-filter-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.filter-hint {
+    color: #8a817b;
+    font-size: 0.82rem;
+}
+
+.primary-action {
+    padding: 11px 18px;
+    border: 1px solid #722f37;
+    border-radius: 10px;
+    background: #722f37;
+    color: #fffaf6;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.primary-action:hover:not(:disabled) {
+    background: #451c22;
+    transform: translateY(-1px);
+}
+
+.primary-action:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}

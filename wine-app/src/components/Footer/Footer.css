@@ -1,0 +1,35 @@
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+
+    border-top: 1px solid rgba(114, 47, 55, 0.12);
+    color: #746b64;
+    text-align: center;
+    font-size: 0.82rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer-divider {
+    padding: 0 0.35rem;
+    color: #b18a83;
+}
+
+.footer-credit {
+    color: #9a8d84;
+    font-size: 0.75rem;
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 1.5rem 1rem;
+    }
+}
