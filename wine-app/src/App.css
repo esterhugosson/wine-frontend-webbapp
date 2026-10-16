@@ -1,4 +1,12 @@
-body, html {
-  margin: 0;
-  padding: 0;
+body {
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(114, 47, 55, 0.08),
+            transparent 30%
+        ),
+        #f7f4ef;
+
+    color: #292522;
 }

@@ -24,7 +24,7 @@ function App() {
 
 
       <Routes>
-        <Route path="*" element={<Home />} />
+         <Route path="*" element={<Home />} />
 
         <Route path='/home' element={<Home />} />
         <Route path='/' element={<Home />} />
@@ -32,7 +32,7 @@ function App() {
         <Route path='/price' element={<Price />} />
         <Route path='/topwines' element={<Topwines />} />
         <Route path='/count' element={<Count />} />
-
+ 
 
 
 
