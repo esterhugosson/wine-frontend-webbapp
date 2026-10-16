@@ -63,28 +63,6 @@ Filters allow users to narrow the results and investigate specific parts of the 
 - Access to the backend API
 - MongoDB and any required AI service credentials if running the full application locally
 
-### Installation
-
-Clone the repository:
-
-```bash
-git clone <YOUR_FRONTEND_GITHUB_URL>
-cd <YOUR_FRONTEND_FOLDER>
-npm install
-```
-
-Create a `.env` file using the environment variable names expected by the application. Configure the backend API URL and any required service settings.
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-Open the local URL provided by Vite in your terminal.
-
-> Note: The frontend requires the backend API to be configured and running for data-driven features to work.
-
 ## 🔗 Links
 
 - **GitHub — Frontend:** [View source code](https://github.com/esterhugosson/wine-frontend-webbapp)
